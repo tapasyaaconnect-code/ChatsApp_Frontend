@@ -1,0 +1,298 @@
+:root {
+  --accent: #128c7e;
+  --accent-bright: #25d366;
+  --accent-soft: rgba(18, 140, 126, 0.12);
+  --accent-glow: rgba(37, 211, 102, 0.22);
+
+  --bg-primary: #f7faf8;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #eef3f0;
+  --bg-elevated: #ffffff;
+
+  --text-primary: #0f1c17;
+  --text-secondary: #5b6b63;
+  --text-muted: #87948c;
+
+  --border-color: #d8e3dc;
+  --border-strong: #b9c9bf;
+
+  --shadow-sm: 0 1px 2px rgb(15 28 23 / 0.05);
+  --shadow-md: 0 10px 30px rgb(15 28 23 / 0.08);
+  --shadow-lg: 0 24px 60px rgb(15 28 23 / 0.12);
+
+  --nav-bg: rgba(247, 250, 248, 0.82);
+  --phone-shell: #ffffff;
+  --phone-bezel: #0f1c17;
+  --message-in: #eef3f0;
+  --message-out: rgba(37, 211, 102, 0.22);
+  --typing-bg: #e8eee9;
+
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+
+  --nav-height: 64px;
+  --page-pad: clamp(1rem, 4vw, 2rem);
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+
+  color-scheme: light;
+}
+
+.dark {
+  --accent: #25d366;
+  --accent-bright: #3fe07f;
+  --accent-soft: rgba(37, 211, 102, 0.14);
+  --accent-glow: rgba(37, 211, 102, 0.18);
+
+  --bg-primary: #0b141a;
+  --bg-secondary: #111b21;
+  --bg-tertiary: #1f2c34;
+  --bg-elevated: #162028;
+
+  --text-primary: #e9edef;
+  --text-secondary: #aebac1;
+  --text-muted: #8696a0;
+
+  --border-color: #233039;
+  --border-strong: #314049;
+
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.25);
+  --shadow-md: 0 12px 32px rgb(0 0 0 / 0.35);
+  --shadow-lg: 0 28px 70px rgb(0 0 0 / 0.45);
+
+  --nav-bg: rgba(11, 20, 26, 0.86);
+  --phone-shell: #111b21;
+  --phone-bezel: #000000;
+  --message-in: #1f2c34;
+  --message-out: rgba(37, 211, 102, 0.28);
+  --typing-bg: #1f2c34;
+
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.5;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-bright);
+  outline-offset: 3px;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.btn-primary,
+.btn-primary-large {
+  background: var(--accent-bright);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary:hover,
+.btn-primary-large:hover {
+  background: var(--accent);
+  transform: translateY(-2px);
+}
+
+.btn-secondary,
+.btn-secondary-large {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.btn-secondary:hover,
+.btn-secondary-large:hover {
+  background: var(--bg-tertiary);
+}
+
+.btn-primary-large,
+.btn-secondary-large {
+  padding: 0.75rem 2rem;
+  font-size: 1.05rem;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  color: var(--text-primary);
+}
+
+/* Shared auth shell — theme + PWA safe layout */
+.auth-layout {
+  min-height: 100dvh;
+  background: var(--bg-primary);
+}
+
+.auth-container {
+  min-height: 100dvh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding:
+    calc(1.25rem + var(--safe-top))
+    calc(1rem + var(--safe-right))
+    calc(1.25rem + var(--safe-bottom))
+    calc(1rem + var(--safe-left));
+  background:
+    radial-gradient(circle at top, var(--accent-soft), transparent 55%),
+    var(--bg-primary);
+}
+
+.auth-card {
+  width: min(100%, 420px);
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border-radius: var(--radius-lg);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-md);
+  text-align: center;
+  color: var(--text-primary);
+}
+
+.auth-card h2 {
+  font-size: clamp(1.25rem, 4vw, 1.5rem);
+  margin-bottom: 0.5rem;
+}
+
+.auth-card p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.auth-icon {
+  width: 64px;
+  height: 64px;
+  color: var(--accent-bright);
+  margin: 0 auto 1.25rem;
+}
+
+.auth-card form {
+  margin-top: 1.5rem;
+}
+
+.auth-card button[type="submit"],
+.auth-card form > button {
+  width: 100%;
+  min-height: 48px;
+  padding: 0.85rem 1rem;
+  background: var(--accent-bright);
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.auth-card button:hover {
+  background: var(--accent);
+}
+
+.auth-card input,
+.auth-card select,
+.auth-card textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font: inherit;
+}
+
+.auth-card input:focus,
+.auth-card select:focus,
+.auth-card textarea:focus {
+  outline: none;
+  border-color: var(--accent-bright);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.email-row {
+  display: flex;
+  margin: 1.25rem 0;
+}
+
+.email-row input {
+  flex: 1;
+  min-width: 0;
+}
+
+.otp-input {
+  width: 100%;
+  padding: 0.9rem;
+  text-align: center;
+  font-size: 1.35rem;
+  letter-spacing: 0.45em;
+  margin: 1.25rem 0;
+}

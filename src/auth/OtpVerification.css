@@ -1,0 +1,6 @@
+/* OTP field — shell lives in global.css */
+
+.otp-input {
+  letter-spacing: 0.5em;
+  font-weight: 650;
+}

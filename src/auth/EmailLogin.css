@@ -1,0 +1,8 @@
+/* Email login tweaks — shared auth shell lives in global.css */
+
+.auth-card strong {
+  display: inline-block;
+  margin-left: 0.25rem;
+  color: var(--text-primary);
+  font-weight: 700;
+}
