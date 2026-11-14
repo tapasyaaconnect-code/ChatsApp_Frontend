@@ -1,0 +1,19 @@
+{
+  "name": "ChatApp",
+  "short_name": "ChatApp",
+  "description": "Fast, private messaging with groups and calls.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#07141a",
+  "theme_color": "#128c7e",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
